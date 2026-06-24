@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Spelling Bee</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2FHexagon_1.png?v=1575061330545"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic SC"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <div class="topnav" style="opacity:1;">
+      <a href="https://skyline.glitch.me/#top"><i class="far fa-heart"></i></a>
+      <a href="https://skyline.glitch.me/#Pictures"
+        ><i class="far fa-images"></i> Pictures</a
+      >
+      <a href="https://skyline.glitch.me/#timelapses"
+        ><i class="fas fa-video"></i> Videos</a
+      >
+      <a href="https://skyline.glitch.me/#download"
+        ><i class="fas fa-cloud-download-alt"></i> Download Art</a
+      >
+      <a href="https://skyline.glitch.me/#food"
+        ><i class="fas fa-utensils"></i> Recipes</a
+      >
+      <a href="https://family-spellingbee.glitch.me/"
+        ><i class="fas fa-feather-alt"></i> Spelling bee</a
+      >
+    </div>
+    <br>
+    <div></div>
+    <div id="messages">
+      <div id="scoreAlert"></div>
+      <div id="error"></div>
+      <div id="badges">
+        <span id="na"></span>
+        <span><img class="bigBadges" id="badgeQ" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fqueen%20bee.jpg?v=1581554388563"></span>
+        <span><img class="bigBadges" id="badgeG" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fgenuis.jpg?v=1581554421138"></span>
+        <span><img class="bigBadges" id="badgeF" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Ffungi.jpg?v=1581554387740"></span>
+        <span><img class="bigBadges" id="badgeW" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fwiz.jpg?v=1581554388158"></span>
+        <span><img class="bigBadges" id="badgeNL" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fnorm%20loss.jpg?v=1581555214586"></span>
+        <span><img class="bigBadges" id="badgeSL" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fsuper%20loss.jpg?v=1581554387691"></span>
+      </div>
+    </div>
+    <div id="leftDiv">
+      <form>
+        <!--I T S N O T H U R T I N G A N Y O N E J U S T L E A V E T H E F O R M M M M M-->
+        <div id="answerBox"></div>
+      </form>
+      <div class="hive" style="position: relative;">
+        <div
+          class="hiveButton allButtons nodoubletap"
+          style="position: absolute; top: 0%; left: 35%;"
+        ></div>
+        <div
+          class="hiveButton allButtons nodoubletap"
+          style="position: absolute; top: 14%; left: 10%;"
+        ></div>
+        <div
+          class="hiveButton allButtons nodoubletap"
+          style="position: absolute; top: 14%; left: 60%;"
+        ></div>
+        <div
+          id="centerButton"
+          class="allButtons nodoubletap"
+          style="position: absolute; top: 28%; left: 35%;"
+        ></div>
+        <div
+          class="hiveButton allButtons nodoubletap"
+          style="position: absolute; top: 42%; left: 60%;"
+        ></div>
+        <div
+          class="hiveButton allButtons nodoubletap"
+          style="position: absolute; top: 42%; left: 10%;"
+        ></div>
+        <div
+          class="hiveButton allButtons nodoubletap"
+          style="position: absolute; top: 56%; left: 35%;"
+        ></div>
+      </div>
+      <div class="answerMods nodoubletap">
+        <button class="button" onclick="yourRank();enterAnswer();yourRank()" id="enterAnswer">
+        Enter 
+        </button>
+        <button class="button" onclick="shuffle()" id="shuffle">
+        <i class="fas fa-random"></i>
+        </button>
+        <button class="button" onclick="deleteLetter()" id="backspace">
+        Delete
+        </button>
+      </div>
+  <!--    <button onclick="uploadADB()" style="display: none">
+        Upload My Local Storage
+      </button>
+      <button onclick="getADB()">
+        Set My Local Storage
+      </button>-->
+      <div class="sound">
+              <label class="checkBox">
+                :Sound
+                <span id="soundImg"></span>
+                <input class="buttons" id="soundBox" type="checkbox" onclick="changeSound()"/>
+                <span class="checkmark"></span>
+              </label>
+      </div><br><br>
+      <div id="todaysDate"></div>
+      <button class="buttons" id="jumpToday" onclick="today()">
+        Today's Game <i class="fas fa-mug-hot"></i>
+      </button>
+      <br>
+      <button class="buttons" onclick="showPrevGames(); allStorage();">
+      History <i class="fas fa-calendar-alt"></i>
+      </button>
+      <div id="othergamesouter" class="modal">
+        <div id="otherGames" class="modal-content">
+          <span class="closer" onclick="spanClick()">&times;</span>
+          History: <div id="prevGames"></div>
+      </div>
+      </div>
+     <!-- <button onclick="cler()">Remove Today</button>-->
+    </div>
+    <div id="rightDiv">
+      <div style="cursor:pointer;" id="currentScoreContainer">
+        score:<span id="currentScore">0</span> <i class="fas fa-sort-down"></i>
+      </div>
+      <div id="scoreModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <table style="width:100%; font-size: 18px;">
+            <tr>
+              <th>Current Score:</th>
+              <th id="yourScoreBox"></th>
+            </tr>
+            <tr>
+              <td><img class="levelIcons" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fqueen%20bee.jpg?v=1581554388563">Queen Bee:</td>
+              <td id="queenBee"></td>
+            </tr>
+            <tr>
+              <td><img class="levelIcons" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fgenuis.jpg?v=1581554421138">Genius:</td>
+              <td id="genius"></td>
+            </tr>
+            <tr>
+              <td><img class="levelIcons" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Ffungi.jpg?v=1581554387740">FunGi:</td>
+              <td id="funGi"></td>
+            </tr>
+            <tr>
+              <td><img class="levelIcons" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fwiz.jpg?v=1581554388158">Wizahd:</td>
+              <td id="wizahd"></td>
+            </tr>
+            <tr>
+              <td><img class="levelIcons" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fnorm%20loss.jpg?v=1581555214586">Normal Loser:</td>
+              <td id="normalLoser"></td>
+            </tr>
+            <tr>
+              <td><img class="levelIcons" src="https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2Fsuper%20loss.jpg?v=1581554387691">Super Loser:</td>
+              <td id="superLoser"></td>
+            </tr>
+            <div class="modeChanger">
+              <label class="checkBox">
+                Classic Mode
+                <input id="classicBox" type="checkbox" checked="checked" onclick="changeMode()"/>
+                <span class="checkmark"></span>
+              </label>
+            </div></table>
+            <button class="quitButton" onclick="giveUp()">
+            I give up!
+          </button><br>
+        </div>
+      </div>
+      <div id="level"></div>
+      <br />
+      words: <!--<span class="sortChanger">
+              <label class="checkBox">
+                A-Z
+                <input id="sortBox" type="checkbox" checked="checked" onclick="azSort()"/>
+                <span class="checkmark"></span>
+              </label>
+            </span>-->
+      <div id="wordList"></div>
+      <div id="timeOutOuter" class="modal">
+        <div id="timeOutInner" class="modal-content">
+          <h5>
+            Server Timed Out, Please Retry (Try hitting reload and then "today's game" to access the most recent game)
+          </h5>
+          <span onclick="location.reload()" id="reloadButton" class="button">
+            Reload
+          </span>
+          <span onclick="document.getElementById('timeOutOuter').style.display='none'" id="cancelButton" class="button">
+            Cancel
+          </span><br>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,452 @@
+.topnav {
+  background-color: lightcyan;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  display: none;
+  top: 0;
+  opacity: 1;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #AFEEEE;
+  color: black;
+}
+
+#answerBox {
+  color: black;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #FFFF99;
+  outline: 3px solid grey;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.allButtons {
+  display: inline-block;
+  cursor: pointer;
+  width: 30%;
+  height: 30%;
+  float: left;
+  text-align: center;
+  line-height: 50px;
+  background-image: url("https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2FHexagon_1.svg%20-%20Copy.png?v=1575061148404");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.nodoubletap {
+  user-select: none;
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+  touch-action: manipulation;
+}
+
+.allButtons:active {
+  color: gray;
+  background-image: url("https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2FHexagon_1.png?v=1575061330545");
+}
+
+.hive {
+  height: 200px;
+  width: 200px;
+}
+
+#error {
+  display: none;
+  background: red;
+  color: white;
+  margin: 5px;
+  text-align: center;
+  font-size: 24px;
+  z-index: 2;
+  position: fixed;
+  width: 45%;
+  top: 0;
+  left: 0;
+  padding: 2px;
+  opacity: 0.5;
+  border: 2px solid firebrick;
+}
+
+#leftDiv {
+  float: left;
+  width: 45%;
+  font-size: 36px;
+  font-family: "Courier New", Courier, monospace;
+  display: block;
+}
+
+#rightDiv {
+  float: right;
+  width: 45%;
+  font-size: 36px;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+}
+
+#scoreAlert {
+  display: none;
+  background: yellow;
+  margin: 5px;
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  width: 45%;
+  top: 0;
+  left: 0;
+  padding: 2px;
+}
+
+button, .button {
+  display: inline-block !important;
+  color: black;
+  background: #FFFF99;
+  border: 3px solid black;
+  padding: 5px;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 5px;
+  float: left;
+}
+
+button:hover, .button:hover {
+  background-color: #FFFF99;
+}
+
+#wordList {
+  font-size: 24px;
+  overflow: auto;
+  display: block;
+  height: 420px;
+  background-color: #FFFF99;
+  border: 2px solid grey;
+}
+
+#messages {
+  height: 20px;
+}
+
+.answerMods {
+  width: 100%;
+  display: inline-block;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+  animation-name: zoom;
+  animation-duration: 0.8s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close, .closer {
+  color: #aaa;
+  position: fixed;
+  font-size: 28px;
+  font-weight: bold;
+  z-index:4;
+}
+
+.close:hover,
+.close:focus, .closer:hover, .closer:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+th {
+  text-align: left;
+}
+
+table {
+  font-size: 24px;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+
+#currentScoreContainer:hover {
+opacity: 0.5;
+}
+
+#shuffle {
+  border-radius: 12px; 
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.quitButton {
+  display: block;
+  color: white;
+  background-color: firebrick;
+  text-decoration: bold;
+}
+
+.quitButton:hover {
+  color: white;
+  background-color: red;
+}
+
+.quita {
+  color: red;
+}
+
+#level {
+  font-weight: bold;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
+  #rightDiv {
+    width: 40%px;
+    float: right;
+    font-size: 24px;
+  }
+
+  #wordList {
+    height: 325px;
+  }
+  body {
+    font-size: 24px;
+  }
+  #currentScoreContainer,
+  #level {
+    font-size: 24px;
+  }
+  .hive {
+    height: 150px;
+    width: 150px;
+    font-size: 30px;
+  }
+  body {
+    font-size: 24px;
+  }
+  button {
+    font-size: 15px;
+  }
+  .allButtons {
+    line-height: 40px;
+  }
+  #answerBox{
+    font-size: 24px;
+    height: 25px;
+  }
+  #otherGames{
+  height: 100px;
+}
+}
+
+@media only screen and (orientation: portrait)  {
+  #shuffle{
+    font-size: 14px;
+  }
+  #enterAnswer{
+    font-size: 12px
+  }
+  #backspace{font-size: 12px;}
+}
+
+
+.checkBox {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkBox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border: 2px solid black;
+}
+
+/* On mouse-over, add a grey background color */
+.checkBox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkBox input:checked ~ .checkmark {
+  background-color: yellow;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkBox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkBox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.modeChanger {
+  float: left;
+}
+
+.levelIcons {
+  width: 30px;
+  padding: none;
+}
+
+#badges {
+  display: block;
+  color: white;
+  margin: 5px;
+  text-align: right;
+  font-size: 24px;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  padding: 2px;
+}
+
+.bigBadges {
+  display: none;
+  height: 40px;
+}
+
+.otherDates {
+  display: block;
+  font-size: 16px;
+}
+
+#otherGames{
+  display: none;
+  background-color: white;
+  height: 100px;
+  overflow: auto;
+  height: 50%;
+}
+
+#continue{
+  font-size: 16px;
+}
+
+#centerButton {
+  background-image: url("https://cdn.glitch.com/9269e55a-fa29-4b11-9ea9-4bc941fc78f2%2FHexagon_1.png?v=1575061330545");
+}
+
+.sound {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  font-size: 24px;
+}
+
+.checks {
+  font-size: 50%;
+  padding-top: 10px;
+  display: none;
+  color: limegreen;
+  float: left;
+}
+
+.closer {
+  position: fixed;
+  right: 20%;
+}
+
+.close {
+  position: fixed;
+  right: 20%;
+}
+
+.popupimgs{
+  display: inline-block;
+}
+
+#todaysDate{
+  font-size: 24px;
+}
+
+#cancelButton{
+  float:right;
+}
